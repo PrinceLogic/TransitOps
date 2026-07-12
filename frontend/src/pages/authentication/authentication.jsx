@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { setUser, getDefaultRoute, ROLE_CONFIG } from '../../utils/auth';
 import './authentication.css';
 
 function Authentication() {
@@ -12,8 +13,22 @@ function Authentication() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({ email, password, role });
-        navigate('/dashboard');
+        
+        // Define user object
+        const selectedRoleName = ROLE_CONFIG[role] ? ROLE_CONFIG[role].name : 'User';
+        const userName = email.split('@')[0] || 'User';
+        
+        const user = {
+            email,
+            role,
+            name: `${userName} / ${selectedRoleName}`
+        };
+        
+        setUser(user);
+        
+        // Redirect based on role
+        const defaultRoute = getDefaultRoute(role);
+        navigate(defaultRoute);
     };
 
     return (

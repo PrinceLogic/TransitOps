@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { getUser, isRouteAllowed } from '../../utils/auth';
 import './dashboard.css';
 
 /* Navigation config (structural, not data) */
@@ -95,7 +96,7 @@ function Dashboard() {
     const [vehicleStatus, setVehicleStatus] = useState({});
     const [totalFleet, setTotalFleet] = useState(0);
     const [fleetUtilization, setFleetUtilization] = useState(0);
-    const [user, setUser] = useState({ name: '', role: '' });
+    const user = getUser() || { name: '—', role: '—' };
     const [loading, setLoading] = useState(true);
     const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -113,8 +114,6 @@ function Dashboard() {
                 // setVehicleStatus(data.vehicleStatus);
                 // setTotalFleet(data.totalFleet);
                 // setFleetUtilization(data.fleetUtilization);
-                // setUser(data.user);
-
             } catch (error) {
                 console.error('Failed to fetch dashboard data:', error);
             } finally {
@@ -157,7 +156,7 @@ function Dashboard() {
                 </div>
 
                 <nav className="sidebar-nav">
-                    {navItems.map((item) => (
+                    {navItems.filter(item => isRouteAllowed(user, item.path)).map((item) => (
                         <button
                             key={item.id}
                             className={`sidebar-nav-item ${location.pathname === item.path ? 'active' : ''}`}

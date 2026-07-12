@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { getUser, isRouteAllowed } from '../../utils/auth';
 import '../dashboard/dashboard.css';
 import './driver.css';
 
@@ -78,7 +79,7 @@ function Drivers() {
     const navigate = useNavigate();
     const location = useLocation();
     const [sidebarOpen, setSidebarOpen] = useState(true);
-    const [user] = useState({ name: 'Raven K.', role: 'Fleet Manager' });
+    const user = getUser() || { name: '—', role: '—' };
 
     return (
         <div className="dashboard-layout">
@@ -97,7 +98,7 @@ function Drivers() {
                 </div>
 
                 <nav className="sidebar-nav">
-                    {navItems.map((item) => (
+                    {navItems.filter(item => isRouteAllowed(user, item.path)).map((item) => (
                         <button
                             key={item.id}
                             className={`sidebar-nav-item ${location.pathname === item.path ? 'active' : ''}`}
