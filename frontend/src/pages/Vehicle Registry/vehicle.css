@@ -1,0 +1,179 @@
+/* ========================================
+   Vehicle Registry Page Styles
+   ======================================== */
+
+.vehicle-page-content {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    gap: 20px;
+}
+
+/* ----------------------------------------
+   Filters Bar (Specific to Vehicle Page)
+   ---------------------------------------- */
+.vehicle-filters {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1.5px solid #e8ebe5;
+    padding: 16px 20px;
+}
+
+.vehicle-filters .filter-select {
+    min-width: 140px;
+}
+
+.vehicle-search-input {
+    flex: 1;
+    max-width: 300px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    color: #1a2e1a;
+    background: #f4f6f3;
+    border: 1.5px solid #e8ebe5;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.vehicle-search-input::placeholder {
+    color: #9ca89c;
+}
+
+.vehicle-search-input:focus {
+    border-color: #2d7a3a;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(45, 122, 58, 0.08);
+}
+
+.add-vehicle-btn {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    background: #e69c24; /* Match the orange/yellow from wireframe */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-vehicle-btn:hover {
+    background: #d48b1b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(230, 156, 36, 0.25);
+}
+
+/* ----------------------------------------
+   Vehicle Table
+   ---------------------------------------- */
+.vehicle-table-container {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1.5px solid #e8ebe5;
+    overflow: hidden;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.vehicle-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vehicle-table thead th {
+    padding: 14px 24px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #8a988a;
+    text-align: left;
+    border-bottom: 1px solid #eef1ec;
+    background: #fafbf9;
+}
+
+.vehicle-table tbody td {
+    padding: 16px 24px;
+    font-size: 13px;
+    color: #1a2e1a;
+    border-bottom: 1px solid #f2f4f0;
+    font-weight: 500;
+}
+
+.vehicle-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.vehicle-table tbody tr {
+    transition: background 0.15s;
+}
+
+.vehicle-table tbody tr:hover {
+    background: #fafbf9;
+}
+
+.vehicle-id {
+    font-weight: 600;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.vehicle-model,
+.vehicle-type,
+.vehicle-capacity,
+.vehicle-odometer,
+.vehicle-cost {
+    color: #5a6b5a;
+}
+
+/* Status Badges */
+.v-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.v-badge.available {
+    background: #e8f5e9;
+    color: #2d7a3a;
+}
+
+.v-badge.on-trip {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.v-badge.in-shop {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.v-badge.retired {
+    background: #ffebee;
+    color: #c62828;
+}
+
+/* ----------------------------------------
+   Rule Note
+   ---------------------------------------- */
+.vehicle-rules {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e65100;
+    padding: 0 10px;
+    animation: fadeIn 0.4s ease-out 0.1s both;
+}

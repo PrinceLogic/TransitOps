@@ -1,0 +1,244 @@
+/* ========================================
+   Maintenance Page Styles
+   ======================================== */
+
+.maintenance-page-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 36px;
+    padding: 28px;
+    align-items: start;
+}
+
+/* ----------------------------------------
+   Left Column: Log Service Record
+   ---------------------------------------- */
+.log-service-section {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1.5px solid #e8ebe5;
+    padding: 24px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #5a6b5a;
+    margin-bottom: 24px;
+    display: block;
+}
+
+/* Form Styles */
+.maintenance-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.m-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.m-form-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #5a6b5a;
+}
+
+.m-form-input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    color: #1a2e1a;
+    background: #fcfcfc;
+    border: 1.5px solid #e8ebe5;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.m-form-input:focus {
+    border-color: #2d7a3a;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(45, 122, 58, 0.08);
+}
+
+.btn-save-record {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    background: #e69c24; /* Orange */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 12px;
+}
+
+.btn-save-record:hover {
+    background: #d48b1b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(230, 156, 36, 0.25);
+}
+
+/* Helper Text Area */
+.status-flow-diagram {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 16px;
+    background: #fafbf9;
+    border-radius: 8px;
+    border: 1px solid #eef1ec;
+}
+
+.flow-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.flow-state {
+    min-width: 70px;
+}
+
+.flow-state.available { color: #2d7a3a; }
+.flow-state.in-shop { color: #e65100; }
+
+.flow-arrow-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 20px;
+}
+
+.flow-arrow-line {
+    flex: 1;
+    height: 1px;
+    background: #c5cec5;
+}
+
+.flow-arrow-head {
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid #c5cec5;
+}
+
+.flow-action-text {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: #8a988a;
+    background: #fafbf9;
+    padding: 0 6px;
+    white-space: nowrap;
+}
+
+.maintenance-note {
+    font-size: 11px;
+    color: #e65100;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+/* ----------------------------------------
+   Right Column: Service Log
+   ---------------------------------------- */
+.service-log-section {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1.5px solid #e8ebe5;
+    padding: 24px;
+    animation: fadeIn 0.4s ease-out 0.1s both;
+}
+
+.service-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.service-table thead th {
+    padding: 0 16px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #8a988a;
+    text-align: left;
+    border-bottom: 1px solid #eef1ec;
+}
+
+.service-table tbody td {
+    padding: 16px;
+    font-size: 13px;
+    color: #1a2e1a;
+    border-bottom: 1px solid #f2f4f0;
+    font-weight: 500;
+}
+
+.service-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.log-vehicle {
+    font-weight: 600;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.log-service {
+    color: #1a2e1a;
+}
+
+.log-cost {
+    color: #5a6b5a;
+}
+
+/* Badges */
+.m-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.m-badge.in-shop {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.m-badge.completed {
+    background: #e8f5e9;
+    color: #2d7a3a;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .maintenance-page-content {
+        grid-template-columns: 1fr;
+    }
+}
