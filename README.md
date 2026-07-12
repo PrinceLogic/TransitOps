@@ -1,2 +1,0 @@
-# TransitOps
-Smart_Transport_Operations_Platform
